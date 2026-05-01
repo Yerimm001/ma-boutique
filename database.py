@@ -49,10 +49,10 @@ def ajouter_produits():
     if produits == 0:
         conn.execute('''
             INSERT INTO produits (nom, prix, stock, image) VALUES
-            ('T-shirt', 19.99, 50, 'default.jpg'),
-            ('Jean', 49.99, 30, 'default.jpg'),
-            ('Chaussures', 79.99, 20, 'default.jpg'),
-            ('Veste', 99.99, 15, 'default.jpg')
+            ('T-shirt', 19.99, 50, 'tshirt.jpg'),
+            ('Jean', 49.99, 30, 'jean.jpg'),
+            ('Chaussures', 79.99, 20, 'chaussures.jpg'),
+            ('Veste', 99.99, 15, 'veste.jpg')
         ''')
         conn.commit()
     conn.close()

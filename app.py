@@ -276,3 +276,5 @@ def modifier_produit(id):
 # debug=True recharge automatiquement quand vous modifiez le code
 if __name__ == '__main__':
     app.run(debug=True)
+
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0

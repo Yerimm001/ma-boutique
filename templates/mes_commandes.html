@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mes commandes</title>
+</head>
+
+
+<body>
+
+{% extends 'base.html' %}
+{% block titre %}Mes Commandes{% endblock %}
+{% block contenu %}
+
+<h1>Mes Commandes</h1>
+
+{% if commandes %}
+<table>
+    <tr>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Total</th>
+        <th>Date</th>
+        <th>Statut</th>
+    </tr>
+    {% for commande in commandes %}
+    <tr>
+        <td>{{ commande['nom_produit'] }}</td>
+        <td>{{ commande['quantite'] }}</td>
+        <td>{{ commande['prix_total'] }} €</td>
+        <td>{{ commande['date_commande'] }}</td>
+        <td>
+            {% if commande['statut'] == 'en attente' %}
+                <span style="color:#e67e22">🟡 En attente</span>
+            {% elif commande['statut'] == 'validée' %}
+                <span style="color:#2ecc71">✅ Validée</span>
+            {% elif commande['statut'] == 'annulée' %}
+                <span style="color:#e74c3c">❌ Annulée</span>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>Vous n'avez pas encore de commandes.</p>
+    <br>
+    <a href="/produits" class="btn btn-primary">Voir les produits</a>
+{% endif %}
+
+{% endblock %}
+</body>
+</html>

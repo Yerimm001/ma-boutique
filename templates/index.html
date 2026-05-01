@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mon Site</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block titre %}Accueil{% endblock %}
+{% block contenu %}
+
+<h1>Bienvenue sur Ma Boutique !</h1>
+<p>Découvrez nos produits et passez vos commandes facilement.</p>
+<br>
+<a href="/produits" class="btn btn-primary">Voir les produits</a>
+
+{% endblock %}
+    <a href="/inscription">S'inscrire</a>
+    <a href="/connexion">Se connecter</a>
+</body>
+</html>
+

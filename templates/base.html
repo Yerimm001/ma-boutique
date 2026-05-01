@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block titre %}Ma Boutique{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav>
+        <!-- Gauche -->
+        <a href="/">🛍️ Ma Boutique</a>
+
+        <!-- Milieu -->
+        {% if session.get('utilisateur_nom') %}
+            <span style="color:white">Bonjour {{ session['utilisateur_nom'] }}</span>
+        {% endif %}
+
+        <!-- Droite -->
+        <div>
+            <a href="/produits">Produits</a>
+            {% if session.get('utilisateur_nom') %}
+            <a href="/mes_commandes">Mes commandes</a>
+            {% endif %}
+            <a href="/commandes">Commandes</a>
+            {% if session.get('est_admin') %}
+            <a href="/admin">🔧 Admin</a>
+            {% endif %}
+            {% if session.get('utilisateur_nom') %}
+            <a href="/deconnexion">Se déconnecter</a>
+            {% else %}
+            <a href="/connexion">Se connecter</a>
+            <a href="/inscription">S'inscrire</a>
+            {% endif %}
+</div>
+    </nav>
+
+    <div class="container">
+        {% block contenu %}{% endblock %}
+    </div>
+    
+</body>
+</html>

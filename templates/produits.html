@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nos produits</title>
+</head>
+<body>
+        
+{% extends 'base.html' %}
+{% block titre %}Produits{% endblock %}
+{% block contenu %}
+
+<h1>Nos Produits</h1>
+
+<div class="produits-grid">
+    {% for produit in produits %}
+    <div class="carte-produit">
+        <img src="/static/images/{{ produit['image'] }}" 
+             alt="{{ produit['nom'] }}"
+             style="width:100%; height:200px; object-fit:cover; border-radius:8px;">
+        <h2>{{ produit['nom'] }}</h2>
+        <p class="prix">{{ produit['prix'] }} €</p>
+        <p class="stock">Stock : {{ produit['stock'] }}</p>
+        <a href="/commander/{{ produit['id'] }}" class="btn btn-primary">Commander</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
+<a href="/commandes">Voir les commandes</a>
+</body>
+</html>

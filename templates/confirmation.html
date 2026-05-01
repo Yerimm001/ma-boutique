@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Commande confirmée</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block titre %}Commande confirmée{% endblock %}
+{% block contenu %}
+
+<h1>✅ Commande confirmée !</h1>
+<p>Merci <strong>{{ nom }}</strong> pour votre commande !</p>
+<br>
+<p>Produit : {{ produit['nom'] }}</p>
+<p>Quantité : {{ quantite }}</p>
+<p>Total : {{ (produit['prix'] * quantite) | round(2) }} €</p>
+<br>
+<a href="/produits" class="btn btn-primary">← Retour aux produits</a>
+<a href="/commandes" class="btn btn-success">Voir toutes les commandes</a>
+
+{% endblock %}
+
+</body>
+</html>

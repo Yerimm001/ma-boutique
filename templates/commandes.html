@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Commandes</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block titre %}Commandes{% endblock %}
+{% block contenu %}
+
+<h1>Liste des commandes</h1>
+
+<table>
+    <tr>
+        <th>Nom client</th>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Prix total</th>
+        <th>Date</th>
+    </tr>
+    {% for commande in commandes %}
+    <tr>
+        <td>{{ commande['nom_client'] }}</td>
+        <td>{{ commande['nom_produit'] }}</td>
+        <td>{{ commande['quantite'] }}</td>
+        <td>{{ commande['prix_total'] }} €</td>
+        <td>{{ commande['date_commande'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
+    <a href="/produits"><- Retour aux produits</a>
+
+</body>
+</html>

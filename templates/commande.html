@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Commander</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block titre %}Commander{% endblock %}
+{% block contenu %}
+
+<h1>Commander : {{ produit['nom'] }}</h1>
+<p>Prix : {{ produit['prix'] }} €</p>
+<p>Stock disponible : {{ produit['stock'] }}</p>
+
+<form action="/passer_commande" method="POST">
+    <input type="hidden" name="produit_id" value="{{ produit['id'] }}">
+    <p>
+        <label>Quantité :</label><br>
+        <input type="number" name="quantite" min="1" max="{{ produit['stock'] }}" value="1" required>
+    </p>
+    <button type="submit">Commander</button>
+</form>
+
+<a href="/produits" class="btn btn-primary" style="margin-top:15px">← Retour aux produits</a>
+
+{% endblock %}
+</body>
+
+</html>

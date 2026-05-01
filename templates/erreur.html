@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Erreur</title>
+</head> 
+<body>
+{% extends 'base.html' %}
+{% block titre %}Erreur{% endblock %}
+{% block contenu %}
+
+<h1>❌ Erreur</h1>
+<p class="erreur">{{ message }}</p>
+<br>
+<a href="/produits" class="btn btn-primary">← Retour aux produits</a>
+
+{% endblock %}
+</body>
+</html>

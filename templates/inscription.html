@@ -8,28 +8,34 @@
 {% block titre %}Inscription{% endblock %}
 {% block contenu %}
 
-<h1>Inscription</h1>
-{% if erreur %}
-    <p class="erreur">{{ erreur }}</p>
-{% endif %}
+<div style="max-width:400px; margin:50px auto; background:white; padding:30px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+    <h1 style="text-align:center; margin-bottom:20px">📝 Inscription</h1>
 
-<form action="/inscription" method="POST">
-    <p>
-        <label>Nom :</label><br>
-        <input type="text" name="nom" required>
+    {% if erreur %}
+        <p class="erreur">{{ erreur }}</p>
+    {% endif %}
+
+    <form action="/inscription" method="POST">
+        <p>
+            <label>Nom :</label><br>
+            <input type="text" name="nom" required>
+        </p>
+        <p>
+            <label>Email :</label><br>
+            <input type="email" name="email" required>
+        </p>
+        <p>
+            <label>Mot de passe :</label><br>
+            <input type="password" name="mot_de_passe" required>
+        </p>
+        <button type="submit" style="width:100%">S'inscrire</button>
+    </form>
+
+    <p style="text-align:center; margin-top:20px; color:#888">
+        Déjà un compte ? 
+        <a href="/connexion" style="color:#3498db">Connectez-vous</a>
     </p>
-    <p>
-        <label>Email :</label><br>
-        <input type="email" name="email" required>
-    </p>
-    <p>
-        <label>Mot de passe :</label><br>
-        <input type="password" name="mot_de_passe" required>
-    </p>
-    <button type="submit">S'inscrire</button>
-</form>
-<br>
-<a href="/connexion">Déjà un compte ? Se connecter</a>
+</div>
 
 {% endblock %}
 </body>

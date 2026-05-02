@@ -8,24 +8,30 @@
 {% block titre %}Connexion{% endblock %}
 {% block contenu %}
 
-<h1>Connexion</h1>
-{% if erreur %}
-    <p class="erreur">{{ erreur }}</p>
-{% endif %}
+<div style="max-width:400px; margin:50px auto; background:white; padding:30px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1)">
+    <h1 style="text-align:center; margin-bottom:20px">🔐 Connexion</h1>
+    
+    {% if erreur %}
+        <p class="erreur">{{ erreur }}</p>
+    {% endif %}
 
-<form action="/connexion" method="POST">
-    <p>
-        <label>Email :</label><br>
-        <input type="email" name="email" required>
+    <form action="/connexion" method="POST">
+        <p>
+            <label>Email :</label><br>
+            <input type="email" name="email" required>
+        </p>
+        <p>
+            <label>Mot de passe :</label><br>
+            <input type="password" name="mot_de_passe" required>
+        </p>
+        <button type="submit" style="width:100%">Se connecter</button>
+    </form>
+
+    <p style="text-align:center; margin-top:20px; color:#888">
+        Pas encore de compte ? 
+        <a href="/inscription" style="color:#3498db">Inscrivez-vous</a>
     </p>
-    <p>
-        <label>Mot de passe :</label><br>
-        <input type="password" name="mot_de_passe" required>
-    </p>
-    <button type="submit">Se connecter</button>
-</form>
-<br>
-<a href="/inscription">Pas de compte ? S'inscrire</a>
+</div>
 
 {% endblock %}
 </body>
